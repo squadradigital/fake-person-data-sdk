@@ -1,0 +1,46 @@
+on:
+  push:
+    tags: 
+      - '*'
+
+name: create release on tag
+
+jobs:
+
+  publish:
+    name: nuget publish
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: code checkout
+        uses: actions/checkout@v2
+        
+      - name: prepare dotnet core 3.1.301
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 3.1.301
+
+      - name: dotnet restore
+        run: dotnet restore
+
+      - name: dotnet build
+        run: dotnet build --configuration Release --no-restore
+
+      - name: dotnet test
+        run: dotnet test --no-restore --verbosity normal
+
+      - name: prepare nuget
+        uses: NuGet/setup-nuget@v1.0.2
+
+      - name: dot
+        uses: | 
+          dotnet nuget add source https://nuget.pkg.github.com/squadradigital/index.json \
+          -n github \
+          -u squadradigital \
+          -p ${{ secrets.GH_TOKEN }} [--store-password-in-clear-text]
+     
+      - name: dotnet pack
+        uses: dotnet pack --configuration Release
+      
+      - name: dotnet push
+        uses: dotnet nuget push "bin/Release/*.nupkg" --source "github"
