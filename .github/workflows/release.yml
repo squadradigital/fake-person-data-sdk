@@ -23,19 +23,21 @@ jobs:
 
     - name: Build
       run: dotnet build --configuration Release --no-restore
+      working-directory: ./squadradigital.fake-person-data-sd
 
     - name: Run unit tests
       run: dotnet test --no-restore --verbosity normal
+      working-directory: ./squadradigital.fake-person-data-sd
     
     - name: Create NuGet Package
       run: dotnet pack -c Release /p:Version=${{ github.event.release.tag_name }} /p:PackageReleaseNotes="See https://github.com/squadradigital/fake-person-data-sdk/releases/tag/${{ github.event.release.tag_name }}"
-      working-directory: ./release
+      working-directory: ./squadradigital.fake-person-data-sdk
 
     - name: Archive NuGet Package
       uses: actions/upload-artifact@v1
       with:
         name: Squadra.Person.Data.Sdk
-        path: ./release/src/Squadra.Person.Data.Sdk/bin/Release/Squadra.Person.Data.Sdk.${{ github.event.release.tag_name }}.nupkg
+        path: ./squadradigital.fake-person-data-sdk/src/Squadra.Person.Data.Sdk/bin/Release/Squadra.Person.Data.Sdk.${{ github.event.release.tag_name }}.nupkg
 
     - name: Publish Nuget Package
       run: dotnet nuget push **/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --no-symbols true
