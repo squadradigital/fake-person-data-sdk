@@ -14,14 +14,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Checkout code
     - uses: actions/checkout@v2
-    - name: Setup .NET Core
+    - name: Set up dotnet core
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.301
-    - name: restore
+    - name: Restore dependencies
       run: dotnet restore
-    - name: build
+    - name: Build
       run: dotnet build --configuration Release --no-restore
-    - name: test
+    - name: Run unit tests
       run: dotnet test --no-restore --verbosity normal
