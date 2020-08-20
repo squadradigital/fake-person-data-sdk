@@ -2,10 +2,20 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
+        <PackageId>Squadra.Person.Data.Sdk</PackageId>
+        <Version>1.0.0.0</Version>
+        <Copyright>Squadra Digital 2020</Copyright>
+        <Description>A fake people data SDK, which can be used by any job application scenario.</Description>
+        <Authors>Rodrigo Reis</Authors>
+        <PackageTags>AspNetCore;Fake Data;SDK;Squadra Digital;NetCore;DotNetStandard;Mock</PackageTags>
+        <PackageProjectUrl>https://github.com/squadradigital/fake-person-data-sdk</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/squadradigital/fake-person-data-sdk/blob/master/README.md</PackageLicenseUrl>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>git://github.com/squadradigital/fake-person-data-sdk</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.2.0" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.2.0"/>
     </ItemGroup>
 
     <ItemGroup>
