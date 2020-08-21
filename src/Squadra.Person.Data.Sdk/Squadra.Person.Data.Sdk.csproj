@@ -5,11 +5,11 @@
         <PackageId>Squadra.Person.Data.Sdk</PackageId>
         <Version>1.0.0.0</Version>
         <Copyright>Squadra Digital 2020</Copyright>
-        <Description>A fake people data SDK, which can be used by any job application scenario.</Description>
+        <Description>A fake person data SDK, that can be used for resolving  selection tests.</Description>
         <Authors>Rodrigo Reis</Authors>
         <PackageTags>AspNetCore;Fake Data;SDK;Squadra Digital;NetCore;DotNetStandard;Mock</PackageTags>
         <PackageProjectUrl>https://github.com/squadradigital/fake-person-data-sdk</PackageProjectUrl>
-        <PackageLicenseUrl>https://github.com/squadradigital/fake-person-data-sdk/blob/master/README.md</PackageLicenseUrl>
+        <PackageLicenseUrl>https://github.com/squadradigital/fake-person-data-sdk/blob/master/LICENSE.md</PackageLicenseUrl>
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>git://github.com/squadradigital/fake-person-data-sdk</RepositoryUrl>
     </PropertyGroup>
